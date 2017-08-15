@@ -32,7 +32,7 @@ Page({
         var imagePath = tempFilePaths[0];
         // 预览照片
         _this.setData({
-          image1: ''
+          image1: imagePath
         });
         console.log(_this);
         upload(_this, imagePath);
@@ -59,8 +59,11 @@ function upload(that, filePath) {
       region: 'SCN',
       key: "moment_" + util.formatTime(new Date()) + util.getSuffix(filePath),
       //uploadURL: 'https://up-z2.qbox.me',
+      // 存储空间：moment
       domain: 'ouogw6o24.bkt.clouddn.com',
-      uptoken: '5pnDmS9xG96s2HdneYrE8ed_b_qEh-6212GjHe7U:AzfPeO6BVulwMvnVHaQDwNKtrKE=:eyJzY29wZSI6Im1vbWVudCIsImRlYWRsaW5lIjoxNTAyNzIzNzMzfQ==',
+      // 存储空间：travel
+      //domain: 'ouqar8cq5.bkt.clouddn.com',
+      uptoken: '',
   })
   // wx.uploadFile({
   //   url: '/servlet',
