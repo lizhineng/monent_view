@@ -1,0 +1,28 @@
+/* uploadImg.wxss */
+/* .content{
+  border:1px black solid;
+  margin: 10px;
+  font-size: 10pt;
+  padding: 10px;
+} */
+
+@import "../common/lib/weui.wxss";
+
+.page-section-ctn {
+  text-align: center;
+}
+
+.image {
+  margin-top: 30rpx;
+  width: 580rpx;
+  /* height: 208rpx; */
+}
+
+textarea{
+  width: 700rpx;
+  padding: 25rpx 0;
+}
+.textarea-wrp {
+    padding: 0 25rpx;
+    background-color: #fff;
+}
