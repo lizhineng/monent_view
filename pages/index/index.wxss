@@ -1,21 +1,53 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+@import "../common/weui.wxss";
+
+.page-section-ctn {
+  text-align: center;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.image {
+  margin-top: 30rpx;
+  width: 580rpx;
+  /* height: 208rpx; */
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.placeholder-style {
+  font-style: italic
 }
 
-.usermotto {
-  margin-top: 200px;
+textarea{
+  width: 700rpx;
+  padding: 35rpx 0;
+}
+.textarea-wrp {
+    padding: 0 25rpx;
+    background-color: #fff;
+}
+
+button{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.button-sp-area{
+  margin: 0 auto;
+  width: 60%;
+}
+.flex-wrp{
+  margin-top: 60rpx;
+  display:flex;
+}
+.flex-item{
+  width: 1000rpx;
+  height: 100rpx;
+  font-size: 26rpx;
+}
+.submit {
+  background: #fff;
+  text-align:center;
+  line-height:50px;
+  font-size:20px;
+  font-family:黑体;
+  color:green;
+  letter-spacing:3px
 }

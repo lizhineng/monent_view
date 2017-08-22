@@ -102,7 +102,6 @@ function doUpload(filePath, success, fail, options) {
             //do something
             var imageUrl = config.qiniuImageURLPrefix + '/' + dataObject.key;
             dataObject.imageURL = imageUrl;
-            console.log(dataObject);
             if (success) {
               success(dataObject);
             }
@@ -126,7 +125,7 @@ function getQiniuToken(callback) {
   wx.request({
     url: config.qiniuUploadTokenURL,
     success: function (res) {
-      var token = res.data.uptoken;
+      var token = res.data.data;
       if (token && token.length > 0) {
         config.qiniuUploadToken = token;
         if (callback) {
