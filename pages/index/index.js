@@ -101,6 +101,10 @@ function submit(_this) {
     })
     return;
   }
+  wx.showToast({
+    icon: 'loading',
+    title: '正在写入...',
+  }),
   wx.request({
     url: 'https://moment.fomeiherz.top/moment',
     data : {
