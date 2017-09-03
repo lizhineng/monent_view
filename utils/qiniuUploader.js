@@ -132,11 +132,19 @@ function getQiniuToken(callback) {
             callback();
         }
       } else {
-        console.error('qiniuUploader cannot get your token, please check the uptokenURL or server')
+        wx.showToast({
+          image: '../pages/common/icon/warning-2.png',
+          title: '获取token失败',
+          duration: 2000
+        })
       }
     },
     fail: function (error) {
-      console.error('qiniu UploadToken is null, please check the init config or networking: ' + error);
+      wx.showToast({
+        image: '../pages/common/icon/warning-2.png',
+        title: '获取token失败',
+        duration: 2000
+      })
     }
   })
 }

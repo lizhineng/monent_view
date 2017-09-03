@@ -43,6 +43,7 @@ Page({
     };
   },
   onShow: function() {
+    
   },
   getUserInfo: function(e) {
     app.globalData.userInfo = e.detail.userInfo
@@ -84,9 +85,24 @@ Page({
 })
 
 function submit(_this) {
-  console.log(_this.data.uploadedImage1);
+  if (_this.data.uploadedImage1 == '' || _this.data.uploadedImage1 == null) {
+    wx.showToast({
+      image: '../common/icon/warning-2.png',
+      title: 'image is null',
+      duration: 2000
+    })
+    return;
+  }
+  if (_this.data.content == '' || _this.data.content == null) {
+    wx.showToast({
+      image: '../common/icon/warning-2.png',
+      title: 'content is null',
+      duration: 2000
+    })
+    return;
+  }
   wx.request({
-    url: 'https://www.fomeiherz.top/moment',
+    url: 'https://moment.fomeiherz.top/moment',
     data : {
       image1: _this.data.uploadedImage1,
       content: _this.data.content
@@ -97,15 +113,16 @@ function submit(_this) {
     },
     success: function (res) {
       if ("21020000" == res.data.retCode) {
-        wx.showModal({
+        wx.showToast({
           title: 'success',
-          content: '保存成功',
-          success: function (res) {
-            if (res.confirm) {
-            } else if (res.cancel) {
-
-            }
-          }
+          icon: 'success',
+          duration: 2000
+        })
+      } else {
+        wx.showToast({
+          image: '../common/icon/warning-2.png',
+          title: 'fail',
+          duration: 2000
         })
       }
     }
@@ -125,6 +142,11 @@ function upload(that, filePath) {
     });
   }, (error) => {
     console.log('error: ' + error);
+    wx.showModal({
+      title: '提示',
+      content: 'error: ' + error,
+      showCancel: false
+    })
   }, {
     region: 'SCN',
     key: "moment_" + util.formatTime(new Date()) + util.getSuffix(filePath),
@@ -133,6 +155,6 @@ function upload(that, filePath) {
     domain: 'ouogw6o24.bkt.clouddn.com',
     // 存储空间：travel
     //domain: 'ouqar8cq5.bkt.clouddn.com',
-    uptokenURL: 'https://www.fomeiherz.top/qiniu/uploadToken'
+    uptokenURL: 'https://moment.fomeiherz.top/qiniu/uploadToken'
   })
 }
